@@ -1,0 +1,237 @@
+/* 1. Reset: predictable sizing and no default body margin */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* 2. Header */
+header {
+  background-color: #8e0000;
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* 3. Centre the main content and limit its width */
+main {
+  max-width: 700px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* 4. Note form laid out with Flexbox */
+#note-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+#note-form label {
+  width: 100%;
+  font-weight: bold;
+}
+
+#note-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#note-category {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* 5. Buttons */
+button {
+  background-color: #0ba184;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #088a70;
+  transform: translateY(-2px);
+}
+
+/* 6. Error message */
+#error-message {
+  color: #c0392b;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin-top: 10px;
+}
+
+/* 7. Search box */
+#search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* 8. Notes list header: count + Clear all button */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#note-count {
+  margin: 0;
+  color: #555;
+}
+
+#clear-all-btn {
+  background-color: #8e0000;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+#clear-all-btn:hover {
+  background-color: #6b0000;
+}
+
+/* 9. Notes list */
+#notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each note as a card */
+.note {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-left: 6px solid #999;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.note-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.note-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.note-category-label {
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+.delete-btn {
+  background-color: #8e0000;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+  background-color: #6b0000;
+}
+
+.no-results {
+  color: #777;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+/* 10. Category colours: a different left border per category */
+.category-personal {
+  border-left-color: #0ba184; /* teal */
+}
+
+.category-work {
+  border-left-color: #8e0000; /* dark red */
+}
+
+.category-study {
+  border-left-color: #2563eb; /* blue */
+}
+
+/* 11. Footer */
+footer {
+  text-align: center;
+  color: #777;
+  padding: 16px;
+}
+
+/* 12. Phones: stack the form vertically */
+@media (max-width: 600px) {
+  header {
+    padding: 16px 12px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #note-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #clear-all-btn {
+    width: 100%;
+  }
+}
