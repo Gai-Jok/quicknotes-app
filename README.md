@@ -1,0 +1,53 @@
+# QuickNotes
+
+QuickNotes is a simple, browser-based note-taking app built with plain HTML, CSS and
+JavaScript. It lets you quickly jot down notes, organise them by category, search through
+them, and keep them safe even after you close the tab — all without needing a server,
+a sign-up, or an internet connection.
+
+## Features
+
+- **Add notes** with a category of Personal, Work or Study, picked from a dropdown.
+- **Validation** on every note: empty (or whitespace-only) notes and notes over 200
+  characters are rejected with a clear error message.
+- **Delete** any note individually with its own Delete button.
+- **Live search** — type into the search box and the list filters instantly, with a
+  friendly "No notes match your search." message when nothing matches.
+- **Category colour-coding** — each note card has a left-border colour that matches its
+  category (teal for Personal, dark red for Work, blue for Study).
+- **Accurate note count** — the page always shows "You have no notes yet.", "You have
+  1 note." or "You have N notes." depending on how many notes are saved.
+- **Persistence** — notes are saved to the browser's `localStorage`, so refreshing or
+  closing the page never loses your data.
+- **Clear all** (bonus) — a button to delete every note at once, protected by a
+  confirmation prompt so it can't happen by accident.
+- **Responsive layout** — the form and note list adapt to a single-column layout on
+  screens 600px wide or narrower.
+
+## How to run it locally
+
+1. Clone or download this repository.
+2. Open the folder in VS Code (or any editor).
+3. Install the **Live Server** extension if you don't already have it.
+4. Right-click `index.html` and choose **"Open with Live Server"**.
+5. The app opens in your browser at `http://127.0.0.1:5500` (or similar) — start adding
+   notes!
+
+No build steps, servers, or dependencies are required — it's three static files
+(`index.html`, `style.css`, `script.js`) that run entirely in the browser.
+
+## What I learned
+
+- How to structure a small app around a **single source of truth** (the `notes` array)
+  and a `render()` function, so the screen always reflects the data instead of being
+  updated in multiple scattered places.
+- Why `textContent` (not `innerHTML`) matters for anything built from user-typed text —
+  using `innerHTML` with unescaped input opens the door to cross-site scripting (XSS).
+- How to persist data across page refreshes using `localStorage` together with
+  `JSON.stringify()` and `JSON.parse()`, since `localStorage` can only store strings.
+- How event listeners attached inside a loop (one per Delete button) use closures to
+  "remember" which specific note they belong to, even though they're all created by the
+  same block of code.
+- How to build a live search feature by re-running the same `render()` function with a
+  filtered subset of the data, rather than writing a separate code path for search
+  results.
